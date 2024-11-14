@@ -21,7 +21,7 @@ def record_audio():
     RATE = 48000                   # Sample rate: 48kHz (common for high-quality audio)
     CHUNK = 1024                   # Buffer size for reading audio data
     RECORD_SECONDS = 5 * 60        # Duration of the recording (5 minutes)
-    AUDIO_DEVICE_INDEX = 0        # Index for the audio input device
+    AUDIO_DEVICE_INDEX = None        # Index for the audio input device
 
     audio = pyaudio.PyAudio()      # Initialize PyAudio object for audio recording
 
