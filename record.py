@@ -46,7 +46,7 @@ def record_audio():
 
         # Loop to read audio data in chunks and store it in frames
         for _ in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-            data = stream.read(CHUNK)  # Read a chunk of audio data
+            data = stream.read(CHUNK, exception_on_overflow = False)  # Read a chunk of audio data
             frames.append(data)        # Append it to the frames list
 
         # Stop and close the audio stream once recording is complete
