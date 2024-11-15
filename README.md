@@ -7,7 +7,6 @@ This prototype is designed to automate the collection of audio recordings and en
 The system includes:
 1. **Audio Recording Device**: A microphone connected to the Raspberry Pi.
 2. **BME280 Environmental Sensor**: For temperature, humidity, and pressure measurements, connected over SPI.
-3. **TSL2591 Luminosity Sensor**: (connected via I2C, assumed to be used separately as its connections are not detailed in the code.)
 
 ### Connections for BME280 Sensor (SPI)
 - **VCC**: Connect to Pin 1 (3.3V)
@@ -54,7 +53,7 @@ This script logs environmental data from the BME280 sensor at specified interval
 Each log entry is timestamped, and the data is stored in a JSON-like format in a file named based on the node ID and date, e.g., `Node_1_MM-DD-YY.json`.
 
 ## Running the Prototype
-1. **Setup Hardware**: Connect the BME280 and TSL2591 sensors as specified above.
+1. **Setup Hardware**: Connect the BME280 sensor as specified above.
 2. **Mount the USB Drive**: Ensure `BEAMdrive` is mounted at `/media/pi/BEAMdrive`.
 3. **Execute Scripts**:
    - Run the audio recording script at the top of every hour.
