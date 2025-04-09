@@ -3,12 +3,14 @@
 
 import time
 import board
+import digitalio
 from adafruit_bme280 import basic as adafruit_bme280
 
-# Create sensor object, using the board's default I2C bus.
-i2c = board.I2C()  # uses board.SCL and board.SDA
-# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
-bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+cs = digitalio.DigitalInOut(board.D5)
+spi = board.SPI()
+bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)
+
+
 
 # OR create sensor object, using the board's default SPI bus.
 # import digitalio
@@ -25,3 +27,4 @@ while True:
     print("Pressure: %0.1f hPa" % bme280.pressure)
     print("Altitude = %0.2f meters" % bme280.altitude)
     time.sleep(2)
+
