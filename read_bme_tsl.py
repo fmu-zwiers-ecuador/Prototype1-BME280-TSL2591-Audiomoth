@@ -2,10 +2,11 @@ import time
 import board
 import digitalio
 import adafruit_tsl2591
+import datetime
 from adafruit_bme280 import basic as adafruit_bme280
 
 # Open the file with the date as its name in append mode to avoid overwriting data
-file_path = "/media/pi/BEAMdrive/" + open("Node_ID").read().strip() + "_" + datetime.datetime.now().strftime("%m-%d-%y") + ".json"
+file_path = "/media/pi/BEAMdrive/" + open("Node_ID.txt").read().strip() + "_" + datetime.datetime.now().strftime("%m-%d-%y") + ".json"
 
 cs = digitalio.DigitalInOut(board.D5)
 spi = board.SPI()
