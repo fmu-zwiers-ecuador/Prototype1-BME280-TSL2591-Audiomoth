@@ -24,32 +24,32 @@ temp = -1.0
 press = -1.0
 
 try:
-  sensor = adafruit_tsl2591.TSL2591(i2c)
-  lux = sensor.lux
-  ir = sensor.infrared
-  vis = sensor.visible
-  full_spec = sensor.full_spectrum
+    sensor = adafruit_tsl2591.TSL2591(i2c)
+    lux = sensor.lux
+    ir = sensor.infrared
+    vis = sensor.visible
+    full_spec = sensor.full_spectrum
 except Exception as e:
     print(f"Error reading from TSL2561: {e}")
 
 try:
-  bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)
-  hum = bme280.humidity
-  temp = bme280.temperature
-  press = bme280.pressure
+    bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)
+    hum = bme280.humidity
+    temp = bme280.temperature
+    press = bme280.pressure
 except Exception as e:
     print(f"Error reading from BME280: {e}")
 
 
 # Write the data to the file with automatic closure
 with open(file_path, "a") as file:
-  file.write("{\n")
-  file.write("\t\"time\": \"" + datetime.datetime.now().strftime("%H:%M:%S") + "\",\n")
-  file.write("\t\"temperature\": %0.1f" % temp + ",\n")
-  file.write("\t\"humidity\": %0.1f" % hum + ",\n")
-  file.write("\t\"pressure\": %0.1f" % press + ",\n")
-  file.write("\t\"lux\": {}".format(lux) + ",\n")
-  file.write("\t\"visible\": {}".format(vis) + ",\n")
-  file.write("\t\"infrared\": {}".format(ir) + "\n")
-  file.write("\t\"full-spectrum\": {}".format(full_spec) + "\n")
-  file.write("}\n")
+    file.write("{\n")
+    file.write("\t\"time\": \"" + datetime.datetime.now().strftime("%H:%M:%S") + "\",\n")
+    file.write("\t\"temperature\": %0.1f" % temp + ",\n")
+    file.write("\t\"humidity\": %0.1f" % hum + ",\n")
+    file.write("\t\"pressure\": %0.1f" % press + ",\n")
+    file.write("\t\"lux\": {}".format(lux) + ",\n")
+    file.write("\t\"visible\": {}".format(vis) + ",\n")
+    file.write("\t\"infrared\": {}".format(ir) + "\n")
+    file.write("\t\"full-spectrum\": {}".format(full_spec) + "\n")
+    file.write("}\n")
