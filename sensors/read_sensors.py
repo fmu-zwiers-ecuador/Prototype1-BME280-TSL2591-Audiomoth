@@ -29,8 +29,7 @@ try:
     sensor = adafruit_tsl2591.TSL2591(i2c)
     lux = sensor.lux
     ir = sensor.infrared
-    broadband = sensor.broadband
-    vis = broadband - ir  # Calculate visible light
+    vis = sensor.visible
 except Exception as e:
     print(f"Error reading from TSL2561: {e}")
 
