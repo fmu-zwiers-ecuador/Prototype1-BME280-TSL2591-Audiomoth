@@ -7,7 +7,7 @@ import adafruit_bme280
 import datetime
 
 # Open the file with the date as its name in append mode to avoid overwriting data
-file_path = "/media/pi/BEAMdrive/" + open("Node_ID").read().strip() + ": " + datetime.datetime.now().strftime("%m-%d-%y") + ".json"
+file_path = "/media/pi/BEAMdrive/" + open("Node_ID").read().strip() + "_" + datetime.datetime.now().strftime("%m-%d-%y") + ".json"
 
 # Create the objects needed to instantiate the sensors
 i2c = busio.I2C(board.SCL, board.SDA)
