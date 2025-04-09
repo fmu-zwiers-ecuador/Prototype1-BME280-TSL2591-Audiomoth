@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
+# Simple demo of the TSL2591 sensor.  Will print the detected light value
+# every second.
+import time
+import board
+import adafruit_tsl2591
+
 # Create sensor object, communicating over the board's default I2C bus
 i2c = board.I2C()  # uses board.SCL and board.SDA
 # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
@@ -35,4 +44,3 @@ while True:
     full_spectrum = sensor.full_spectrum
     print("Full spectrum (IR + visible) light: {0}".format(full_spectrum))
     time.sleep(1.0)
-
