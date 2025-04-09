@@ -26,7 +26,7 @@ press = -1.0
 
 try:
     # Initialize the TSL2561 light sensor
-    sensor = adafruit_tsl2561.TSL2561(i2c)
+    sensor = adafruit_tsl2591.TSL2591(i2c)
     lux = sensor.lux
     ir = sensor.infrared
     broadband = sensor.broadband
