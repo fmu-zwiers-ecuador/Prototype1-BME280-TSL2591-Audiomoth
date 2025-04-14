@@ -31,7 +31,7 @@ try:
     vis = sensor.visible
     full_spec = sensor.full_spectrum
 except Exception as e:
-    print(f"Error reading from TSL2561: {e}")
+    print(f"Error reading from TSL2591: {e}")
 
 try:
     bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, cs)
