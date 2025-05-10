@@ -21,7 +21,7 @@ while True:
 	except OSError:
 		print("retry reads")
 
-	time.sleep(300)
+	time.sleep(2)
 
 
 
